@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Histogram Generator</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="javascript.js" defer></script>
+    </head>
+    <body onload="init()">
+        <header>Histogram Generator</header>
+        <form>
+            <input id="fileInput" type="file" name="file" onchange="handleFileSelect" accept=".csv">
+            <label for="fileInput">Choose a file</label>
+            <pre id="fileContent"></pre>
+        </form>
+        <main class="grid-container">
+            <section id="lower-bounds">
+                <h3>Lower bounds</h3>
+                <table>
+                    <tr>
+                        <td>Max</td>
+                        <td>
+                            <input id="Max" type="number" value="100.00" min="100" max="100" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>A+</td>
+                        <td>
+                            <input id="A+" type="number" value="95.00" min="90" max="100" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>
+                            <input id="A" type="number" value="90.00" min="85" max="95" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>A-</td>
+                        <td>
+                            <input id="A-" type="number" value="85.00" min="80" max="90" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B+</td>
+                        <td>
+                            <input id="B+" type="number" value="80.00" min="75" max="85"step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            <input id="B" type="number" value="75.00" min="70" max="80" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B-</td>
+                        <td>
+                            <input id="B-" type="number" value="70.00" min="65" max="75" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C+</td>
+                        <td>
+                            <input id="C+" type="number" value="65.00" min="60" max="70" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            <input id="C" type="number" value="60.00" min="55" max="65" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C-</td>
+                        <td>
+                            <input id="C-" type="number" value="55.00" min="50" max="60" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>
+                            <input id="D" type="number" value="50.00" min="45" max="55" step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>
+                            <input id="F" type="number" value="0.00" min="0" max="0" step="0.01">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="histogram">
+                <h3>Histogram</h3>
+                <table>
+                    <tr>
+                        <td>A+</td> <td id="1"></td>
+                    </tr>
+                    <tr>
+                        <td>A</td> <td id="2"></td>
+                    </tr>
+                    <tr>
+                        <td>A-</td> <td id="3"></td>
+                    </tr>
+                    <tr>
+                        <td>B+</td> <td id="4"></td>
+                    </tr>
+                    <tr>
+                        <td>B</td> <td id="5"></td>
+                    </tr>
+                    <tr>
+                        <td>B-</td> <td id="6"></td>
+                    </tr>
+                    <tr>
+                        <td>C+</td> <td id="7"></td>
+                    </tr>
+                    <tr>
+                        <td>C</td> <td id="8"></td>
+                    </tr>
+                    <tr>
+                        <td>C-</td> <td id="9"></td>
+                    </tr>
+                    <tr>
+                        <td>D</td> <td id="10"></td>
+                    </tr>
+                    <tr>
+                        <td>F</td> <td id="11"></td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="stats">
+                <h3>Stats</h3>
+                <table>
+                    <tr>
+                        <td>Highest:</td>
+                        <td id="highest"></td>
+                    </tr>   
+                    <tr>
+                        <td>Lowest:</td>
+                        <td id="lowest"></td>
+                    </tr>
+                    <tr>
+                        <td>Mean:</td>
+                        <td id="mean"></td>
+                    </tr>
+                    <tr>
+                        <td>Median:</td>
+                        <td id="median"></td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+
+    </body>
+</html>
